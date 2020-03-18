@@ -1,2 +1,2 @@
 # RPG_CODE
-![./monsterbox2_featured.png](Lets Play!)
+![](./monsterbox2_featured.png)
