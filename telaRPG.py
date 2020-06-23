@@ -3,6 +3,10 @@ from random import *
 from random import shuffle
 import random
 import math
+import winsound
+import cv2 
+import numpy as np 
+from ffpyplayer.player import MediaPlayer
 
 class TelaPython:
   def __init__(self):
@@ -42,6 +46,29 @@ class TelaPython:
     while True:
       # Extract
       self.button, self.values = self.window.Read()
+
+      # Video
+      video_path = "C:\\Users\\renoi\\OneDrive\\Documentos\\RPG\\CODE\\media\\dices_1.mp4"
+      def PlayVideo(video_path):
+          video=cv2.VideoCapture(video_path)
+          player = MediaPlayer(video_path)
+          while True:
+              grabbed, frame=video.read()
+              audio_frame, val = player.get_frame()
+              if not grabbed:
+                  break
+              if cv2.waitKey(28) & 0xFF == ord("q"):
+                  break
+              cv2.imshow("Video", frame)
+              if val != 'eof' and audio_frame is not None:
+                  #audio
+                  img, t = audio_frame
+          video.release()
+          cv2.destroyAllWindows()
+      PlayVideo(video_path) 
+
+      # # Song
+      # winsound.PlaySound("dice_1.wav", winsound.SND_ALIAS)
 
       d4 = self.values['4']
       d6 = self.values['6']
