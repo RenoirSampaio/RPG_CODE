@@ -41,8 +41,6 @@ class TelaPython:
   def Init(self):
     while True:
       # Extract
-      ['Menu', ['&Pause Graph', 'Menu item::optional_key']]
-
       self.button, self.values = self.window.Read()
 
       d4 = self.values['4']
