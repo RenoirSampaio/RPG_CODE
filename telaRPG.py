@@ -7,10 +7,11 @@ import math
 class TelaPython:
   def __init__(self):
     # Layout
-    sg.change_look_and_feel('DarkPurple4')
+    sg.change_look_and_feel('DarkBrown4')
+
+
     layout = [
       [sg.Text('Escolha o número de faces do dado: ', size=(28,0))],
-
       [sg.Radio('4', 'faces', key='4'),
       sg.Radio('6', 'faces', key='6'), 
       sg.Radio('8', 'faces', key='8'),
@@ -18,11 +19,20 @@ class TelaPython:
       sg.Radio('20', 'faces', key='20'),
       sg.Radio('100', 'faces', key='100')],
 
-      [sg.Text('Quantidade de dados:', size=(20,0)), sg.Input(size=(3,0), key='qtd')],
+      [sg.Text('Quantidade de dados:', size=(20,0))], 
+      [sg.Input(size=(3,0), key='qtd')],
+
+      [sg.Text('Aventureiro: ', size=(12,0))], 
+      [sg.Combo(['Elfo', 'Humano', 'Meio-Orc'], key='player')],
+
+      # [sg.Listbox(values=['Listbox 1', 'Listbox 2', 'Listbox 3'], size=(30, 6))]
 
       [sg.Button('Roll This!')],
+
       [sg.Output(size=(30,40))]
     ]
+
+    # layout_2 = [[sg.Image(r'C:\\Users\\renoi\\OneDrive\\Documentos\\RPG\\CODE\\monsters.png')]]
 
     # Window
     self.window = sg.Window('Roll the dices!', size=(300,700)).layout(layout)
@@ -31,6 +41,8 @@ class TelaPython:
   def Init(self):
     while True:
       # Extract
+      ['Menu', ['&Pause Graph', 'Menu item::optional_key']]
+
       self.button, self.values = self.window.Read()
 
       d4 = self.values['4']
@@ -43,9 +55,11 @@ class TelaPython:
       qtd = self.values['qtd']
       qtd = int(qtd)
 
+      player = self.values['player']
 
       s = []
       if (d4 == True):
+        print("Rolagem do", player)
         print(f'{qtd}d4')
         for i in range(qtd):
           random.seed(a=None, version=20)
@@ -60,6 +74,7 @@ class TelaPython:
             print("\n")
 
       elif (d6 == True):
+        print("Rolagem do",player)
         print(f'{qtd}d6')
         for i in range(qtd):
           random.seed(a=None, version=10)
@@ -74,6 +89,7 @@ class TelaPython:
             print("\n")
 
       elif (d8 == True):
+        print("Rolagem do",player)
         print(f'{qtd}d8')
         for i in range(qtd):
           random.seed(a=None, version=21)
@@ -88,6 +104,7 @@ class TelaPython:
             print("\n")
 
       elif (d10 == True):
+        print("Rolagem do",player)
         print(f'{qtd}d10')
         for i in range(qtd):
           random.seed(a=None, version=1)
@@ -102,6 +119,7 @@ class TelaPython:
             print("\n")
 
       elif (d20 == True):
+        print("Rolagem do",player)
         print(f'{qtd}d20')
         for i in range(qtd):
           random.seed(a=None, version=4)
@@ -116,6 +134,7 @@ class TelaPython:
             print("\n")
 
       elif (d100 == True):
+        print("Rolagem do",player)
         print(f'{qtd}d100')
         for i in range(qtd):
           random.seed(a=None, version=3)
@@ -131,4 +150,3 @@ class TelaPython:
 
 screen = TelaPython()
 screen.Init()
-
