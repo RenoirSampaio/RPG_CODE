@@ -38,7 +38,7 @@ def validar_dado(dado):
     receber_valor()
 
 def receber_valor():
-  dado = int(input("Digite o tipo de dado: "))
+  dado = int(input("Digite o número de faces para o dado (4, 6, 8, 10, 20 ou 100): "))
   validar_dado(dado)
 
 def soma(s):
