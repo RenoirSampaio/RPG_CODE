@@ -48,7 +48,7 @@ class TelaPython:
       self.button, self.values = self.window.Read()
 
       # Video
-      video_path = "C:\\Users\\renoi\\OneDrive\\Documentos\\RPG\\CODE\\media\\dices_1.mp4"
+      video_path = "C:\\Users\\renoi\\OneDrive\\Documentos\\RPG\\CODE\\media\\dices_2.mp4"
       def PlayVideo(video_path):
           video=cv2.VideoCapture(video_path)
           player = MediaPlayer(video_path)
