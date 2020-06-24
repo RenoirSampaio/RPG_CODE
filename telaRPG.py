@@ -12,10 +12,20 @@ import os
 class TelaPython:
   def __init__(self):
     # Layout 
-    # (Options.: Black, Brownblue, Dark, Dark2, DarkAmber, DarkBrown2, 
+    # (Options: Black, Brownblue, Dark, Dark2, DarkAmber, DarkBrown2, 
     # DarkBrown4, DarkBrown5, DarkGreen, DarkGreen1, DarkPurple4, DarkPurple5, 
     # DarkPurple6, Default, LightBrown13, TealMono)
     sg.change_look_and_feel('TealMono')
+
+    def AventItem(num):
+        return [sg.Text(f'{num}.'), sg.In(),]
+    layout = [AventItem(x) for x in range(1,9)] + [[sg.Button('Save'), sg.Button('Exit')]]
+    window = sg.Window('Listagem dos Aventureiros', layout)
+    event, values = window.read()
+    lista = []
+    for key, value in values.items():
+        if value != '':
+            lista.append(value)
 
     layout = [
       [sg.Text('Escolha o número de faces do dado: ', size=(28,0))],
@@ -31,9 +41,11 @@ class TelaPython:
       [sg.Input(size=(3,0), key='qtd')],
 
       [sg.Text('Aventureiro: ', size=(12,0))], 
-      [sg.Combo(['Elfo', 'Humano', 'Meio-Orc'], key='player')],
+      [sg.Combo(lista, size=(30,0), key='player')],
 
-      # [sg.Listbox(values=['Listbox 1', 'Listbox 2', 'Listbox 3'], size=(30, 6))]
+      # Opção de lista pre definida
+      # [sg.Combo(['Elfo', 'Humano', 'Meio-Orc'], key='player')],
+
 
       [sg.Button('Roll This!')],
 
@@ -50,7 +62,7 @@ class TelaPython:
     while True:
       # Extract
       self.button, self.values = self.window.Read()
-
+      
       # Video
       dirname = os.path.dirname(__file__)
       filename = os.path.join(dirname, 'media\dices_2.mp4')

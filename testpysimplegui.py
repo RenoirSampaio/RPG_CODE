@@ -1,28 +1,17 @@
-import cv2
-import numpy as np
-#ffpyplayer for playing audio
-from ffpyplayer.player import MediaPlayer
-import os
+import PySimpleGUI as sg
 
-dirname = os.path.dirname(__file__)
-filename = os.path.join(dirname, 'media\dices_2.mp4')
-print(filename)
-video_path = filename
-def PlayVideo(video_path):
-    video=cv2.VideoCapture(video_path)
-    player = MediaPlayer(video_path)
-    while True:
-        grabbed, frame=video.read()
-        audio_frame, val = player.get_frame()
-        if not grabbed:
-            print("End of video")
-            break
-        if cv2.waitKey(28) & 0xFF == ord("q"):
-            break
-        cv2.imshow("Video", frame)
-        if val != 'eof' and audio_frame is not None:
-            #audio
-            img, t = audio_frame
-    video.release()
-    cv2.destroyAllWindows()
-PlayVideo(video_path)
+def ToDoItem(num):
+    return [sg.Text(f'{num}. '), sg.In()]
+
+layout = [ToDoItem(x) for x in range(1,6)] + [[sg.Button('Save'), sg.Button('Exit')]]
+
+window = sg.Window('To Do List Example', layout)
+event, values = window.read()
+print(values)
+
+lista = []
+for key, value in values.items():
+    if value != '':
+        lista.append(value)
+
+print(lista)
