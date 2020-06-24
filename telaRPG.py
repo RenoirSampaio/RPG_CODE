@@ -11,8 +11,11 @@ import os
 
 class TelaPython:
   def __init__(self):
-    # Layout
-    sg.change_look_and_feel('DarkBrown2')
+    # Layout 
+    # (Options.: Black, Brownblue, Dark, Dark2, DarkAmber, DarkBrown2, 
+    # DarkBrown4, DarkBrown5, DarkGreen, DarkGreen1, DarkPurple4, DarkPurple5, 
+    # DarkPurple6, Default, LightBrown13, TealMono)
+    sg.change_look_and_feel('TealMono')
 
     layout = [
       [sg.Text('Escolha o número de faces do dado: ', size=(28,0))],
