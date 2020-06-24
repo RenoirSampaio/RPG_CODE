@@ -67,8 +67,8 @@ class TelaPython:
         PlayVideo(videoPath)
 
         # # Song
-        song = AudioSegment.from_wav(osp.join(mediaDir, 'dices_1.wav'))
-        play(song)
+        # song = AudioSegment.from_wav(osp.join(mediaDir, 'dices_1.wav'))
+        # play(song)
         
         d4 = self.values['4']
         d6 = self.values['6']
@@ -205,6 +205,7 @@ def PlayVideo(videoPath):
     if val != 'eof' and audio_frame is not None:
       img, t = audio_frame                # Audio
   video.release()
+  cv2.destroyAllWindows()
 
 screen = TelaPython()
 screen.Init()
