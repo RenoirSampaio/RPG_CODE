@@ -11,7 +11,7 @@ from ffpyplayer.player import MediaPlayer
 class TelaPython:
   def __init__(self):
     # Layout
-    sg.change_look_and_feel('DarkBrown4')
+    sg.change_look_and_feel('DarkBrown2')
 
 
     layout = [
@@ -20,6 +20,7 @@ class TelaPython:
       sg.Radio('6', 'faces', key='6'), 
       sg.Radio('8', 'faces', key='8'),
       sg.Radio('10', 'faces', key='10'),
+      sg.Radio('12', 'faces', key='12'),
       sg.Radio('20', 'faces', key='20'),
       sg.Radio('100', 'faces', key='100')],
 
@@ -39,7 +40,7 @@ class TelaPython:
     # layout_2 = [[sg.Image(r'C:\\Users\\renoi\\OneDrive\\Documentos\\RPG\\CODE\\monsters.png')]]
 
     # Window
-    self.window = sg.Window('Roll the dices!', size=(300,700)).layout(layout)
+    self.window = sg.Window('Roll the dices!', size=(350,700)).layout(layout)
 
 
   def Init(self):
@@ -74,6 +75,7 @@ class TelaPython:
       d6 = self.values['6']
       d8 = self.values['8']
       d10 = self.values['10']
+      d12 = self.values['12']
       d20 = self.values['20']
       d100 = self.values['100']
       
@@ -134,6 +136,21 @@ class TelaPython:
         for i in range(qtd):
           random.seed(a=None, version=1)
           num = randrange(1,11)
+          s.append(num)
+          print("Dado número %d: %d" %(i+1, num))
+          if (i == qtd-1):
+            soma_s = 0
+            for x in s:
+              soma_s = soma_s + x
+            print("Total dos dados = %d" %soma_s)
+            print("\n")
+
+      elif (d12 == True):
+        print("Rolagem do",player)
+        print(f'{qtd}d12')
+        for i in range(qtd):
+          random.seed(a=None, version=1)
+          num = randrange(1,13)
           s.append(num)
           print("Dado número %d: %d" %(i+1, num))
           if (i == qtd-1):
