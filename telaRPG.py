@@ -64,12 +64,12 @@ class TelaPython:
       self.button, self.values = self.window.Read()
       
       # Video
-      dirname = os.path.dirname(__file__)
-      filename = os.path.join(dirname, 'media\dices_2.mp4')
-      video_path = filename
-      def PlayVideo(video_path):
-          video=cv2.VideoCapture(video_path)
-          player = MediaPlayer(video_path)
+      currDir = os.path.dirname(__file__)
+      mediaDir = os.path.join(currDir, 'media')
+      videoPath = os.path.join(mediaDir, 'dices_2.mp4')
+      def PlayVideo(videoPath):
+          video=cv2.VideoCapture(videoPath)
+          player = MediaPlayer(videoPath)
           while True:
               grabbed, frame=video.read()
               audio_frame, val = player.get_frame()
@@ -83,7 +83,7 @@ class TelaPython:
                   img, t = audio_frame
           video.release()
           cv2.destroyAllWindows()
-      PlayVideo(video_path) 
+      PlayVideo(videoPath) 
 
       # # Song
       # winsound.PlaySound("dice_1.wav", winsound.SND_ALIAS)
