@@ -3,16 +3,16 @@ from random import *
 from random import shuffle
 import random
 import math
-import winsound
+# import winsound
 import cv2 
 import numpy as np 
 from ffpyplayer.player import MediaPlayer
+import os
 
 class TelaPython:
   def __init__(self):
     # Layout
     sg.change_look_and_feel('DarkBrown2')
-
 
     layout = [
       [sg.Text('Escolha o número de faces do dado: ', size=(28,0))],
@@ -49,7 +49,9 @@ class TelaPython:
       self.button, self.values = self.window.Read()
 
       # Video
-      video_path = "C:\\Users\\renoi\\OneDrive\\Documentos\\RPG\\CODE\\media\\dices_2.mp4"
+      dirname = os.path.dirname(__file__)
+      filename = os.path.join(dirname, 'media\dices_2.mp4')
+      video_path = filename
       def PlayVideo(video_path):
           video=cv2.VideoCapture(video_path)
           player = MediaPlayer(video_path)

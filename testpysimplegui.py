@@ -2,7 +2,12 @@ import cv2
 import numpy as np
 #ffpyplayer for playing audio
 from ffpyplayer.player import MediaPlayer
-video_path = "C:\\Users\\renoi\\OneDrive\\Documentos\\RPG\\CODE\\media\\dices_1.mp4"
+import os
+
+dirname = os.path.dirname(__file__)
+filename = os.path.join(dirname, 'media\dices_2.mp4')
+print(filename)
+video_path = filename
 def PlayVideo(video_path):
     video=cv2.VideoCapture(video_path)
     player = MediaPlayer(video_path)
