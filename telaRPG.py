@@ -3,19 +3,23 @@ from random import *
 from random import shuffle
 import random
 import math
-# import winsound
 import cv2 
 import numpy as np 
 from ffpyplayer.player import MediaPlayer
 import os
+# import winsound
 
 class TelaPython:
   def __init__(self):
     # Layout 
-    # (Options: Black, Brownblue, Dark, Dark2, DarkAmber, DarkBrown2, 
-    # DarkBrown4, DarkBrown5, DarkGreen, DarkGreen1, DarkPurple4, DarkPurple5, 
-    # DarkPurple6, Default, LightBrown13, TealMono)
-    sg.change_look_and_feel('TealMono')
+    layout = [[sg.Combo(['Black', 'Brownblue', 'Dark', 'Dark2', 'DarkAmber', 'DarkBrown2', 
+    'DarkBrown4', 'DarkBrown5', 'DarkGreen', 'DarkGreen1', 'DarkPurple4', 'DarkPurple5', 
+    'DarkPurple6', 'Default', 'LightBrown13', 'TealMono'], size=(40, 0))] + [sg.Button('Ok')]]
+    window = sg.Window('Escolha de Layout', layout)
+    theme = window.read()
+    nameTheme = theme[1]
+    strTheme = nameTheme[0]
+    sg.change_look_and_feel(strTheme)
 
     def AventItem(num):
         return [sg.Text(f'{num}.'), sg.In(),]
@@ -43,7 +47,7 @@ class TelaPython:
       [sg.Text('Aventureiro: ', size=(12,0))], 
       [sg.Combo(lista, size=(30,0), key='player')],
 
-      # Opção de lista pre definida
+      # # Opção de lista pre definida
       # [sg.Combo(['Elfo', 'Humano', 'Meio-Orc'], key='player')],
 
 
@@ -51,8 +55,6 @@ class TelaPython:
 
       [sg.Output(size=(30,40))]
     ]
-
-    # layout_2 = [[sg.Image(r'C:\\Users\\renoi\\OneDrive\\Documentos\\RPG\\CODE\\monsters.png')]]
 
     # Window
     self.window = sg.Window('Roll the dices!', size=(350,700)).layout(layout)
@@ -103,7 +105,7 @@ class TelaPython:
 
       s = []
       if (d4 == True):
-        print("Rolagem do", player)
+        print("Rolagem de", player)
         print(f'{qtd}d4')
         for i in range(qtd):
           random.seed(a=None, version=20)
@@ -118,7 +120,7 @@ class TelaPython:
             print("\n")
 
       elif (d6 == True):
-        print("Rolagem do",player)
+        print("Rolagem de",player)
         print(f'{qtd}d6')
         for i in range(qtd):
           random.seed(a=None, version=10)
@@ -133,7 +135,7 @@ class TelaPython:
             print("\n")
 
       elif (d8 == True):
-        print("Rolagem do",player)
+        print("Rolagem de",player)
         print(f'{qtd}d8')
         for i in range(qtd):
           random.seed(a=None, version=21)
@@ -148,7 +150,7 @@ class TelaPython:
             print("\n")
 
       elif (d10 == True):
-        print("Rolagem do",player)
+        print("Rolagem de",player)
         print(f'{qtd}d10')
         for i in range(qtd):
           random.seed(a=None, version=1)
@@ -163,7 +165,7 @@ class TelaPython:
             print("\n")
 
       elif (d12 == True):
-        print("Rolagem do",player)
+        print("Rolagem de",player)
         print(f'{qtd}d12')
         for i in range(qtd):
           random.seed(a=None, version=1)
@@ -178,7 +180,7 @@ class TelaPython:
             print("\n")
 
       elif (d20 == True):
-        print("Rolagem do",player)
+        print("Rolagem de",player)
         print(f'{qtd}d20')
         for i in range(qtd):
           random.seed(a=None, version=4)
@@ -193,7 +195,7 @@ class TelaPython:
             print("\n")
 
       elif (d100 == True):
-        print("Rolagem do",player)
+        print("Rolagem de",player)
         print(f'{qtd}d100')
         for i in range(qtd):
           random.seed(a=None, version=3)
