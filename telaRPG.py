@@ -58,6 +58,8 @@ class TelaPython:
 
     while True:
       # Extract
+      self.button, self.values = self.window.Read()
+
       if self.button == sg.WIN_CLOSED:
           break
       if self.button == 'Roll This!':
