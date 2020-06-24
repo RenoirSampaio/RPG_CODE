@@ -1,18 +1,22 @@
+# Headers
 import cv2
 import numpy as np
 #ffpyplayer for playing audio
 from ffpyplayer.player import MediaPlayer
 import os
+import os.path as osp
 
-dirname = os.path.dirname(__file__)
-filename = os.path.join(dirname, 'media\dices_2.mp4')
-print(filename)
-video_path = filename
-def PlayVideo(video_path):
-    video=cv2.VideoCapture(video_path)
-    player = MediaPlayer(video_path)
+# Path definitions
+currDir = osp.dirname(os.path.realpath(__file__))
+mediaDir = osp.join(currDir, 'media')
+videoPath = osp.join(mediaDir, 'dices_1.mp4')
+
+def PlayVideo(videoPath):
+    video = cv2.VideoCapture(videoPath)
+    player = MediaPlayer(videoPath)
+>>>>>>> boticario
     while True:
-        grabbed, frame=video.read()
+        grabbed, frame = video.read()
         audio_frame, val = player.get_frame()
         if not grabbed:
             print("End of video")
@@ -21,8 +25,8 @@ def PlayVideo(video_path):
             break
         cv2.imshow("Video", frame)
         if val != 'eof' and audio_frame is not None:
-            #audio
-            img, t = audio_frame
+            img, t = audio_frame                            # Audio
     video.release()
     cv2.destroyAllWindows()
-PlayVideo(video_path)
+
+PlayVideo(videoPath)
