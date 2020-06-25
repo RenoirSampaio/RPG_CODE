@@ -41,8 +41,8 @@ class TelaPython:
     sg.change_look_and_feel(strTheme)
 
     def AventItem(num):
-        return [sg.Text(f'{num}.'), sg.In(),]
-    layout = [AventItem(x) for x in range(1,9)] + [[sg.Button('Save')]]
+        return [sg.Text(f'{num}.'), sg.In(font = ('Lucida Handwriting', 11)),]
+    layout = [AventItem(x) for x in range(1, 9)] + [[sg.Button('Save')]]
     window = sg.Window('Listagem dos Aventureiros', layout)
     event, values = window.read()
     if (event == 'Save'):
@@ -52,7 +52,7 @@ class TelaPython:
               aventLista.append(value)
 
     layout = [
-      [sg.Text('Escolha o número de faces do dado: ', size = (34, 0))],
+      [sg.Text('Escolha o número de faces do dado: ', size = (34, 0), font = ('Lucida Calligraphy', 11))],
       [sg.Radio('4', 'faces', key = '4'),
       sg.Radio('6', 'faces', key = '6'), 
       sg.Radio('8', 'faces', key = '8'),
@@ -61,15 +61,20 @@ class TelaPython:
       sg.Radio('20', 'faces', key = '20'),
       sg.Radio('100', 'faces', key = '100')],
 
-      [sg.Text('Quantidade de dados:', size = (20, 0))], 
+      [sg.Text('Quantidade de dados:', size = (20, 0), font = ('Lucida Calligraphy', 11))], 
       [sg.Input(size = (3, 0), key = 'qtd')],
 
-      [sg.Text('Aventureiro: ', size = (34, 0))], 
-      [sg.Combo(aventLista, size = (45, 0), key = 'player')],
+      [sg.Text('Adicional na rolagem:', size = (20, 0), font = ('Lucida Calligraphy', 11))], 
+      [sg.Slider(range = (0, 100), default_value = 0,
+                size = (45, 15), orientation = 'horizontal',
+                font = ('Lucida Calligraphy', 11), key = 'add')],
+
+      [sg.Text('Aventureiro: ', size = (34, 0), font = ('Lucida Calligraphy', 11))], 
+      [sg.Combo(aventLista, size = (45, 0), key = 'player', font = ('Lucida Handwriting', 11))],
 
       [sg.Button('Roll This!')],
 
-      [sg.Output(size = (45, 40))]
+      [sg.Output(size = (45, 40), font = ('Lucida Handwriting', 11))]
     ]
 
     # Window
@@ -104,12 +109,18 @@ class TelaPython:
       qtd = self.values['qtd']
       qtd = int(qtd)
 
+      add = self.values['add']
+
       player = self.values['player']
       print("Rolagem de", player)
 
       s = []
       if (d4 == True):
-        print(f'{qtd}d4')
+        if add != 0:
+          add = int(add)
+          print(f'{qtd}d4 + {add}')
+        else:
+          print(f'{qtd}d4')
         for i in range(qtd):
           random.seed(a = None, version = 20)
           num = randrange(1, 5)
@@ -121,7 +132,11 @@ class TelaPython:
               soma_s = soma_s + x
 
       elif (d6 == True):
-        print(f'{qtd}d6')
+        if add != 0:
+          add = int(add)
+          print(f'{qtd}d6 + {add}')
+        else:
+          print(f'{qtd}d6')
         for i in range(qtd):
           random.seed(a = None, version = 10)
           num = randrange(1, 7)
@@ -133,7 +148,11 @@ class TelaPython:
               soma_s = soma_s + x
 
       elif (d8 == True):
-        print(f'{qtd}d8')
+        if add != 0:
+          add = int(add)
+          print(f'{qtd}d8 + {add}')
+        else:
+          print(f'{qtd}d8')
         for i in range(qtd):
           random.seed(a = None, version = 21)
           num = randrange(1, 9)
@@ -145,7 +164,11 @@ class TelaPython:
               soma_s = soma_s + x
 
       elif (d10 == True):
-        print(f'{qtd}d10')
+        if add != 0:
+          add = int(add)
+          print(f'{qtd}d10 + {add}')
+        else:
+          print(f'{qtd}d10')
         for i in range(qtd):
           random.seed(a = None, version = 1)
           num = randrange(1, 11)
@@ -157,7 +180,11 @@ class TelaPython:
               soma_s = soma_s + x
 
       elif (d12 == True):
-        print(f'{qtd}d12')
+        if add != 0:
+          add = int(add)
+          print(f'{qtd}d12 + {add}')
+        else:
+          print(f'{qtd}d12')
         for i in range(qtd):
           random.seed(a = None, version = 1)
           num = randrange(1, 13)
@@ -169,7 +196,11 @@ class TelaPython:
               soma_s = soma_s + x
 
       elif (d20 == True):
-        print(f'{qtd}d20')
+        if add != 0:
+          add = int(add)
+          print(f'{qtd}d20 + {add}')
+        else:
+          print(f'{qtd}d20')
         for i in range(qtd):
           random.seed(a = None, version = 4)
           num = randrange(1, 21)
@@ -181,7 +212,11 @@ class TelaPython:
               soma_s = soma_s + x
 
       elif (d100 == True):
-        print(f'{qtd}d100')
+        if add != 0:
+          add = int(add)
+          print(f'{qtd}d100 + {add}')
+        else:
+          print(f'{qtd}d100')
         for i in range(qtd):
           random.seed(a = None, version = 3)
           num = randrange(1, 101)
@@ -191,9 +226,14 @@ class TelaPython:
             soma_s = 0
             for x in s:
               soma_s = soma_s + x
-        
-      print("Total dos dados = %d" %soma_s)
-      print("\n") 
+
+      if add != 0:
+        soma_n = soma_s + add  
+        print(f"Total dos dados = {soma_s} + ({add}) = {soma_n}")
+        print("\n")
+      else:
+        print(f"Total dos dados = {soma_s}")
+        print("\n") 
 
 screen = TelaPython()
 screen.Init()
