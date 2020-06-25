@@ -42,13 +42,14 @@ class TelaPython:
 
     def AventItem(num):
         return [sg.Text(f'{num}.'), sg.In(),]
-    layout = [AventItem(x) for x in range(1,9)] + [[sg.Button('Save'), sg.Button('Exit')]]
+    layout = [AventItem(x) for x in range(1,9)] + [[sg.Button('Save')]]
     window = sg.Window('Listagem dos Aventureiros', layout)
     event, values = window.read()
-    lista = []
-    for key, value in values.items():
-        if value != '':
-            lista.append(value)
+    if (event == 'Save'):
+      aventLista = []
+      for key, value in values.items():
+          if value != '':
+              aventLista.append(value)
 
     layout = [
       [sg.Text('Escolha o número de faces do dado: ', size = (34, 0))],
@@ -64,7 +65,7 @@ class TelaPython:
       [sg.Input(size = (3, 0), key = 'qtd')],
 
       [sg.Text('Aventureiro: ', size = (34, 0))], 
-      [sg.Combo(lista, size = (45, 0), key = 'player')],
+      [sg.Combo(aventLista, size = (45, 0), key = 'player')],
 
       [sg.Button('Roll This!')],
 
