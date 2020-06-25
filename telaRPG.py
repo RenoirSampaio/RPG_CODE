@@ -93,6 +93,10 @@ class TelaPython:
     while True:
       # Extract
       self.button, self.values = self.window.Read()
+      random.seed(a = None, version = 22)
+      numSeed = randrange(1, 99999999999)
+      random.seed(a = None, version = numSeed)
+      numSeed = randrange(1, 99999999999)
 
       # # Video
       PlayVideo(videoPath)
@@ -128,7 +132,7 @@ class TelaPython:
         else:
           print(f'{qtd}d3')
         for i in range(qtd):
-          random.seed(a = None, version = 20)
+          random.seed(a = None, version = numSeed)
           num = randrange(1, 4)
           s.append(num)
           print(f"Dado número {i+1}: {num}")
@@ -144,7 +148,7 @@ class TelaPython:
         else:
           print(f'{qtd}d4')
         for i in range(qtd):
-          random.seed(a = None, version = 20)
+          random.seed(a = None, version = numSeed)
           num = randrange(1, 5)
           s.append(num)
           print(f"Dado número {i+1}: {num}")
@@ -160,7 +164,7 @@ class TelaPython:
         else:
           print(f'{qtd}d6')
         for i in range(qtd):
-          random.seed(a = None, version = 10)
+          random.seed(a = None, version = numSeed)
           num = randrange(1, 7)
           s.append(num)
           print(f"Dado número {i+1}: {num}")
@@ -176,7 +180,7 @@ class TelaPython:
         else:
           print(f'{qtd}d8')
         for i in range(qtd):
-          random.seed(a = None, version = 21)
+          random.seed(a = None, version = numSeed)
           num = randrange(1, 9)
           s.append(num)
           print(f"Dado número {i+1}: {num}")
@@ -192,7 +196,7 @@ class TelaPython:
         else:
           print(f'{qtd}d10')
         for i in range(qtd):
-          random.seed(a = None, version = 1)
+          random.seed(a = None, version = numSeed)
           num = randrange(1, 11)
           s.append(num)
           print(f"Dado número {i+1}: {num}")
@@ -208,7 +212,7 @@ class TelaPython:
         else:
           print(f'{qtd}d12')
         for i in range(qtd):
-          random.seed(a = None, version = 1)
+          random.seed(a = None, version = numSeed)
           num = randrange(1, 13)
           s.append(num)
           print(f"Dado número {i+1}: {num}")
@@ -224,7 +228,7 @@ class TelaPython:
         else:
           print(f'{qtd}d20')
         for i in range(qtd):
-          random.seed(a = None, version = 4)
+          random.seed(a = None, version = numSeed)
           num = randrange(1, 21)
           s.append(num)
           print(f"Dado número {i+1}: {num}")
@@ -240,7 +244,7 @@ class TelaPython:
         else:
           print(f'{qtd}d100')
         for i in range(qtd):
-          random.seed(a = None, version = 3)
+          random.seed(a = None, version = numSeed)
           num = randrange(1, 101)
           s.append(num)
           print(f"Dado número {i+1}: {num}")
