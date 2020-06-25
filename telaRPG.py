@@ -7,9 +7,9 @@ import math
 import cv2            # Check https://docs.opencv.org/master/df/d65/tutorial_table_of_content_introduction.html
 import numpy as np 
 from ffpyplayer.player import MediaPlayer
-from pydub import AudioSegment
-from pydub.playback import play
 import os
+# from pydub.playback import play
+# from pydub import AudioSegment
 # import winsound
 
 def PlayVideo(videoPath):
@@ -24,7 +24,7 @@ def PlayVideo(videoPath):
       break
     cv2.imshow("Video", frame)
     if val != 'eof' and audio_frame is not None:
-      img, t = audio_frame                # Audio
+      img, t = audio_frame              
   video.release()
   cv2.destroyAllWindows()
 
