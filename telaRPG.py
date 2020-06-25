@@ -63,12 +63,12 @@ class TelaPython:
       [sg.Text('Quantidade de dados:', size = (20, 0))], 
       [sg.Input(size = (3, 0), key = 'qtd')],
 
-      [sg.Text('Aventureiro: ', size = (12, 0))], 
-      [sg.Combo(lista, size = (30, 0), key = 'player')],
+      [sg.Text('Aventureiro: ', size = (34, 0))], 
+      [sg.Combo(lista, size = (45, 0), key = 'player')],
 
       [sg.Button('Roll This!')],
 
-      [sg.Output(size = (30, 40))]
+      [sg.Output(size = (45, 40))]
     ]
 
     # Window
@@ -104,10 +104,10 @@ class TelaPython:
       qtd = int(qtd)
 
       player = self.values['player']
+      print("Rolagem de", player)
 
       s = []
       if (d4 == True):
-        print("Rolagem de", player)
         print(f'{qtd}d4')
         for i in range(qtd):
           random.seed(a = None, version = 20)
@@ -118,11 +118,8 @@ class TelaPython:
             soma_s = 0
             for x in s:
               soma_s = soma_s + x
-            print("Total dos dados = %d" %soma_s)
-            print("\n")
 
       elif (d6 == True):
-        print("Rolagem de", player)
         print(f'{qtd}d6')
         for i in range(qtd):
           random.seed(a = None, version = 10)
@@ -133,11 +130,8 @@ class TelaPython:
             soma_s = 0
             for x in s:
               soma_s = soma_s + x
-            print("Total dos dados = %d" %soma_s)
-            print("\n")
 
       elif (d8 == True):
-        print("Rolagem de", player)
         print(f'{qtd}d8')
         for i in range(qtd):
           random.seed(a = None, version = 21)
@@ -148,11 +142,8 @@ class TelaPython:
             soma_s = 0
             for x in s:
               soma_s = soma_s + x
-            print("Total dos dados = %d" %soma_s)
-            print("\n")
 
       elif (d10 == True):
-        print("Rolagem de", player)
         print(f'{qtd}d10')
         for i in range(qtd):
           random.seed(a = None, version = 1)
@@ -163,11 +154,8 @@ class TelaPython:
             soma_s = 0
             for x in s:
               soma_s = soma_s + x
-            print("Total dos dados = %d" %soma_s)
-            print("\n")
 
       elif (d12 == True):
-        print("Rolagem de", player)
         print(f'{qtd}d12')
         for i in range(qtd):
           random.seed(a = None, version = 1)
@@ -178,11 +166,8 @@ class TelaPython:
             soma_s = 0
             for x in s:
               soma_s = soma_s + x
-            print("Total dos dados = %d" %soma_s)
-            print("\n")
 
       elif (d20 == True):
-        print("Rolagem de", player)
         print(f'{qtd}d20')
         for i in range(qtd):
           random.seed(a = None, version = 4)
@@ -193,11 +178,8 @@ class TelaPython:
             soma_s = 0
             for x in s:
               soma_s = soma_s + x
-            print("Total dos dados = %d" %soma_s)
-            print("\n")
 
       elif (d100 == True):
-        print("Rolagem de", player)
         print(f'{qtd}d100')
         for i in range(qtd):
           random.seed(a = None, version = 3)
@@ -208,8 +190,9 @@ class TelaPython:
             soma_s = 0
             for x in s:
               soma_s = soma_s + x
-            print("Total dos dados = %d" %soma_s)
-            print("\n") 
+        
+      print("Total dos dados = %d" %soma_s)
+      print("\n") 
 
 screen = TelaPython()
 screen.Init()
