@@ -11,6 +11,7 @@ import os
 # from pydub.playback import play
 # from pydub import AudioSegment
 # import winsound
+
 def PlayVideo(videoPath):
   video = cv2.VideoCapture(videoPath)
   player = MediaPlayer(videoPath)
@@ -114,7 +115,10 @@ class TelaPython:
       add = self.values['add']
 
       player = self.values['player']
-      print("Rolagem de", player)
+      if player != '':
+        print(f"{player} rolou: ")
+      else:
+        print("Rolagem simples: ")
 
       s = []
       if (d3 == True):
@@ -127,7 +131,7 @@ class TelaPython:
           random.seed(a = None, version = 20)
           num = randrange(1, 4)
           s.append(num)
-          print("Dado número %d: %d" %(i+1, num))
+          print(f"Dado número {i+1}: {num}")
           if (i == qtd-1):
             soma_s = 0
             for x in s:
@@ -143,7 +147,7 @@ class TelaPython:
           random.seed(a = None, version = 20)
           num = randrange(1, 5)
           s.append(num)
-          print("Dado número %d: %d" %(i+1, num))
+          print(f"Dado número {i+1}: {num}")
           if (i == qtd-1):
             soma_s = 0
             for x in s:
@@ -159,7 +163,7 @@ class TelaPython:
           random.seed(a = None, version = 10)
           num = randrange(1, 7)
           s.append(num)
-          print("Dado número %d: %d" %(i+1, num))
+          print(f"Dado número {i+1}: {num}")
           if (i == qtd-1):
             soma_s = 0
             for x in s:
@@ -175,7 +179,7 @@ class TelaPython:
           random.seed(a = None, version = 21)
           num = randrange(1, 9)
           s.append(num)
-          print("Dado número %d: %d" %(i+1, num))
+          print(f"Dado número {i+1}: {num}")
           if (i == qtd-1):
             soma_s = 0
             for x in s:
@@ -191,7 +195,7 @@ class TelaPython:
           random.seed(a = None, version = 1)
           num = randrange(1, 11)
           s.append(num)
-          print("Dado número %d: %d" %(i+1, num))
+          print(f"Dado número {i+1}: {num}")
           if (i == qtd-1):
             soma_s = 0
             for x in s:
@@ -207,7 +211,7 @@ class TelaPython:
           random.seed(a = None, version = 1)
           num = randrange(1, 13)
           s.append(num)
-          print("Dado número %d: %d" %(i+1, num))
+          print(f"Dado número {i+1}: {num}")
           if (i == qtd-1):
             soma_s = 0
             for x in s:
@@ -223,7 +227,7 @@ class TelaPython:
           random.seed(a = None, version = 4)
           num = randrange(1, 21)
           s.append(num)
-          print("Dado número %d: %d" %(i+1, num))
+          print(f"Dado número {i+1}: {num}")
           if (i == qtd-1):
             soma_s = 0
             for x in s:
@@ -239,7 +243,7 @@ class TelaPython:
           random.seed(a = None, version = 3)
           num = randrange(1, 101)
           s.append(num)
-          print("Dado número %d: %d" %(i+1, num))
+          print(f"Dado número {i+1}: {num}")
           if (i == qtd-1):
             soma_s = 0
             for x in s:
