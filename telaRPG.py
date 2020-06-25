@@ -62,8 +62,10 @@ class TelaPython:
       sg.Radio('20', 'faces', key = '20'),
       sg.Radio('100', 'faces', key = '100')],
 
-      [sg.Text('Quantidade de dados:', size = (20, 0), font = ('Lucida Calligraphy', 11))], 
-      [sg.Input(size = (3, 0), key = 'qtd')],
+      [sg.Text('Quantidade de dados:', size = (20, 0), font = ('Lucida Calligraphy', 11))],
+      [sg.Slider(range = (1, 100), default_value = 1,
+          size = (34, 8), orientation = 'horizontal',
+          font = ('Lucida Calligraphy', 11), key = 'qtd')],
 
       [sg.Text('Adicional na rolagem:', size = (20, 0), font = ('Lucida Calligraphy', 11))], 
       [sg.Slider(range = (0, 100), default_value = 0,
@@ -73,14 +75,14 @@ class TelaPython:
       [sg.Text('Aventureiro: ', size = (34, 0), font = ('Lucida Calligraphy', 11))], 
       [sg.Combo(aventLista, size = (35, 0), key = 'player', font = ('Lucida Handwriting', 11))],
 
-      [sg.Button('Roll This!')],
+      [sg.Button('Roll This!', key = 'RollThis')],
 
       [sg.Output(size = (34, 40), font = ('Lucida Handwriting', 11))]
     ]
 
     # Window
     self.window = sg.Window('Roll the dices!', size = (390, 750)).layout(layout)
-  
+
   def Init(self):
     # Path definitions
     currDir = os.path.dirname(__file__)
@@ -91,8 +93,7 @@ class TelaPython:
       # Extract
       self.button, self.values = self.window.Read()
 
-      # if self.button == 'Roll This!':
-        # # Video
+      # # Video
       PlayVideo(videoPath)
 
       # # Song
