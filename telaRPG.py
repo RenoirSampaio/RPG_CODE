@@ -53,7 +53,8 @@ class TelaPython:
 
     layout = [
       [sg.Text('Escolha o número de faces do dado: ', size = (34, 0), font = ('Lucida Calligraphy', 11))],
-      [sg.Radio('4', 'faces', key = '4'),
+      [sg.Radio('3', 'faces', key = '3'),
+      sg.Radio('4', 'faces', key = '4'),
       sg.Radio('6', 'faces', key = '6'), 
       sg.Radio('8', 'faces', key = '8'),
       sg.Radio('10', 'faces', key = '10'),
@@ -66,20 +67,19 @@ class TelaPython:
 
       [sg.Text('Adicional na rolagem:', size = (20, 0), font = ('Lucida Calligraphy', 11))], 
       [sg.Slider(range = (0, 100), default_value = 0,
-                size = (45, 15), orientation = 'horizontal',
+                size = (34, 8), orientation = 'horizontal',
                 font = ('Lucida Calligraphy', 11), key = 'add')],
 
       [sg.Text('Aventureiro: ', size = (34, 0), font = ('Lucida Calligraphy', 11))], 
-      [sg.Combo(aventLista, size = (45, 0), key = 'player', font = ('Lucida Handwriting', 11))],
+      [sg.Combo(aventLista, size = (35, 0), key = 'player', font = ('Lucida Handwriting', 11))],
 
       [sg.Button('Roll This!')],
 
-      [sg.Output(size = (45, 40), font = ('Lucida Handwriting', 11))]
+      [sg.Output(size = (34, 40), font = ('Lucida Handwriting', 11))]
     ]
 
     # Window
-    self.window = sg.Window('Roll the dices!', size = (350, 750)).layout(layout)
-
+    self.window = sg.Window('Roll the dices!', size = (390, 750)).layout(layout)
   
   def Init(self):
     # Path definitions
@@ -98,6 +98,7 @@ class TelaPython:
       # # Song
       # winsound.PlaySound("dice_1.wav", winsound.SND_ALIAS)
 
+      d3 = self.values['3']      
       d4 = self.values['4']
       d6 = self.values['6']
       d8 = self.values['8']
@@ -115,7 +116,23 @@ class TelaPython:
       print("Rolagem de", player)
 
       s = []
-      if (d4 == True):
+      if (d3 == True):
+        if add != 0:
+          add = int(add)
+          print(f'{qtd}d3 + {add}')
+        else:
+          print(f'{qtd}d3')
+        for i in range(qtd):
+          random.seed(a = None, version = 20)
+          num = randrange(1, 4)
+          s.append(num)
+          print("Dado número %d: %d" %(i+1, num))
+          if (i == qtd-1):
+            soma_s = 0
+            for x in s:
+              soma_s = soma_s + x
+
+      elif (d4 == True):
         if add != 0:
           add = int(add)
           print(f'{qtd}d4 + {add}')
