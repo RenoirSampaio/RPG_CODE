@@ -249,13 +249,19 @@ class TelaPython:
             for x in s:
               soma_s = soma_s + x
 
-      if add != 0:
-        soma_n = soma_s + add  
-        print(f"Total dos dados = {soma_s} + ({add}) = {soma_n}")
+      elif (d3 == d4 == d6 == d8 == d10 == d12 == d20 == d100):
+        print('Apenas cascalhos jogados a mesa...')
         print("\n")
-      else:
-        print(f"Total dos dados = {soma_s}")
-        print("\n") 
+        soma_s = 0
+
+      if (soma_s != 0):
+        if add != 0 :
+          soma_n = soma_s + add  
+          print(f"Total dos dados = {soma_s} + ({add}) = {soma_n}")
+          print("\n")
+        else:
+          print(f"Total dos dados = {soma_s}")
+          print("\n") 
 
 screen = TelaPython()
 screen.Init()
