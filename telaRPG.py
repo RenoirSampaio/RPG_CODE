@@ -11,7 +11,6 @@ import os
 # from pydub.playback import play
 # from pydub import AudioSegment
 # import winsound
-
 def PlayVideo(videoPath):
   video = cv2.VideoCapture(videoPath)
   player = MediaPlayer(videoPath)
@@ -31,10 +30,11 @@ def PlayVideo(videoPath):
 class TelaPython:
   def __init__(self):
     # Layout 
-    layout = [[sg.Combo(['Black', 'Brownblue', 'Dark', 'Dark2', 'DarkAmber', 'DarkBrown2', 
-    'DarkBrown4', 'DarkBrown5', 'DarkGreen', 'DarkGreen1', 'DarkPurple4', 'DarkPurple5', 
-    'DarkPurple6', 'Default', 'LightBrown13', 'TealMono'], size=(40, 0))] + [sg.Button('Ok')]]
-    window = sg.Window('Escolha de Layout', layout)
+    layout = [
+      [sg.Text('Escolha o layout de tela: ', size = (34, 0), font = ('Arial', 11))],
+      [sg.Combo(sg.ListOfLookAndFeelValues(), size=(40, 15))] + [sg.Button('Ok')]
+    ]
+    window = sg.Window('Bem vindo!', layout)
     theme = window.read()
     nameTheme = theme[1]
     strTheme = nameTheme[0]
@@ -78,7 +78,7 @@ class TelaPython:
     ]
 
     # Window
-    self.window = sg.Window('Roll the dices!', size = (350, 700)).layout(layout)
+    self.window = sg.Window('Roll the dices!', size = (350, 750)).layout(layout)
 
   
   def Init(self):
