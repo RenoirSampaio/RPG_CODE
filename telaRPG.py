@@ -69,7 +69,7 @@ class TelaPython:
           font = ('Lucida Calligraphy', 11), key = 'qtd')],
 
       [sg.Text('Adicional na rolagem:', size = (20, 0), font = ('Lucida Calligraphy', 11))], 
-      [sg.Slider(range = (0, 100), default_value = 0,
+      [sg.Slider(range = (-100, 100), default_value = 0,
                 size = (34, 8), orientation = 'horizontal',
                 font = ('Lucida Calligraphy', 11), key = 'add')],
 
@@ -128,7 +128,7 @@ class TelaPython:
       if (d3 == True):
         if add != 0:
           add = int(add)
-          print(f'{qtd}d3 + {add}')
+          print(f'{qtd}d3 + ({add})')
         else:
           print(f'{qtd}d3')
         for i in range(qtd):
@@ -144,7 +144,7 @@ class TelaPython:
       elif (d4 == True):
         if add != 0:
           add = int(add)
-          print(f'{qtd}d4 + {add}')
+          print(f'{qtd}d4 + ({add})')
         else:
           print(f'{qtd}d4')
         for i in range(qtd):
@@ -160,7 +160,7 @@ class TelaPython:
       elif (d6 == True):
         if add != 0:
           add = int(add)
-          print(f'{qtd}d6 + {add}')
+          print(f'{qtd}d6 + ({add})')
         else:
           print(f'{qtd}d6')
         for i in range(qtd):
@@ -176,7 +176,7 @@ class TelaPython:
       elif (d8 == True):
         if add != 0:
           add = int(add)
-          print(f'{qtd}d8 + {add}')
+          print(f'{qtd}d8 + ({add})')
         else:
           print(f'{qtd}d8')
         for i in range(qtd):
@@ -192,7 +192,7 @@ class TelaPython:
       elif (d10 == True):
         if add != 0:
           add = int(add)
-          print(f'{qtd}d10 + {add}')
+          print(f'{qtd}d10 + ({add})')
         else:
           print(f'{qtd}d10')
         for i in range(qtd):
@@ -208,7 +208,7 @@ class TelaPython:
       elif (d12 == True):
         if add != 0:
           add = int(add)
-          print(f'{qtd}d12 + {add}')
+          print(f'{qtd}d12 + ({add})')
         else:
           print(f'{qtd}d12')
         for i in range(qtd):
@@ -224,7 +224,7 @@ class TelaPython:
       elif (d20 == True):
         if add != 0:
           add = int(add)
-          print(f'{qtd}d20 + {add}')
+          print(f'{qtd}d20 + ({add})')
         else:
           print(f'{qtd}d20')
         for i in range(qtd):
@@ -240,7 +240,7 @@ class TelaPython:
       elif (d100 == True):
         if add != 0:
           add = int(add)
-          print(f'{qtd}d100 + {add}')
+          print(f'{qtd}d100 + ({add})')
         else:
           print(f'{qtd}d100')
         for i in range(qtd):
